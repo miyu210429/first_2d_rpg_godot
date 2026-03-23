@@ -1,0 +1,21 @@
+config_version=5
+
+[application]
+
+config/name="First_2D_RPG"
+run/main_scene="uid://dfuipur2eghyt"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale=4.0
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"

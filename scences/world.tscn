@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cu1onwr0bc8o5" path="res://art/sprites/tilesets/plains.png" id="2_oou3t"]
 [ext_resource type="Texture2D" uid="uid://b6aqh2nuiyepr" path="res://art/sprites/objects/objects.png" id="3_68tjo"]
 [ext_resource type="PackedScene" uid="uid://bto4etosfibs4" path="res://scences/player.tscn" id="4_oou3t"]
+[ext_resource type="PackedScene" uid="uid://bioufwpb50cq2" path="res://enemy.tscn" id="5_68tjo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7kx3i"]
 texture = ExtResource("1_1kupj")
@@ -88,4 +89,7 @@ layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(655367, 2, 5, 196625, 2, 5, 262150, 524290, 6, 458770, 655362, 7, 327681, 393218, 7, 327680, 393218, 7, 327690, 327682, 0, 65538, 2, 0, 524310, 524290, 6, 196630, 393218, 7, 393217, 2, 1, 393218, 2, 1, 65539, 2, 1, 786448, 2, 5, 327694, 2, 1, 327695, 2, 1, 393231, 2, 1, 19, 327682, 0, 20, 327682, 0, 14, 393218, 7, 16, 393218, 7, 65543, 655362, 7, 589836, 393218, 7, 131081, 2, 5)
 
 [node name="player" parent="." unique_id=1670577075 instance=ExtResource("4_oou3t")]
-position = Vector2(2, 24)
+position = Vector2(96, 121)
+
+[node name="enemy" parent="." unique_id=445721109 instance=ExtResource("5_68tjo")]
+position = Vector2(235, 122)

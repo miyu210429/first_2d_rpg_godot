@@ -458,6 +458,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j5lm"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_efpdg"]
+radius = 15.0
+
 [node name="player" type="CharacterBody2D" unique_id=1670577075]
 y_sort_enabled = true
 collision_layer = 3
@@ -471,3 +474,20 @@ offset = Vector2(0, -15)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1790611043]
 position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_3j5lm")
+
+[node name="player_hitbox" type="Area2D" parent="." unique_id=468658044]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=736236370]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_efpdg")
+
+[node name="attack_cooldown" type="Timer" parent="." unique_id=1507294812]
+wait_time = 0.5
+
+[node name="deal_attack_timer" type="Timer" parent="." unique_id=918171831]
+wait_time = 0.5
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]

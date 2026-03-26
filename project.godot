@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 global="*uid://cg02grsworami"
 
-[display]
-
-window/stretch/scale=4.0
-
 [input]
 
 attack={

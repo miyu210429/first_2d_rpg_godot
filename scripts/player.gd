@@ -20,6 +20,7 @@ func _physics_process(delta):
 	enemy_attack()
 	attack()
 	current_camera()
+	update_health()
 	
 	if health <= 0:
 		player_alive = false
@@ -106,7 +107,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 		
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		health = health - 10
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
@@ -153,4 +154,23 @@ func current_camera():
 	elif global.current_scene == "cliff_side":
 		$world_camera.enabled = false
 		$cliffside_camera.enabled = true
+		
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	#もし体力バーを常に表示させたいならここのif文はいらない
+	#常に左下に表示させたいならあたらしいシーンをつくる
+	if health >= 160:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+func _on_regin_timer_timeout() -> void:
+	if health < 	160:
+		health = health + 20 #今は時間で体力が回復するけれど、アイテムを取るようにしたかったら書き換える
+		if health > 160: #体力が160を超えないようにする
+			health = 160
+	if health <= 0:
+		health = 0
 		

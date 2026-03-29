@@ -505,7 +505,22 @@ limit_top = 0
 limit_right = 228
 limit_bottom = 280
 
+[node name="healthbar" type="ProgressBar" parent="." unique_id=1301083381]
+modulate = Color(0.4392157, 1, 0.45882353, 1)
+offset_left = -7.0
+offset_top = -21.999998
+offset_right = 132.99997
+offset_bottom = 5.000002
+scale = Vector2(0.1, 0.1)
+max_value = 160.0
+show_percentage = false
+
+[node name="regin_timer" type="Timer" parent="." unique_id=848897370]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
